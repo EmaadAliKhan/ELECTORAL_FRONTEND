@@ -1,0 +1,28 @@
+:root {
+    --primary-color: #4A90E2;
+    --background-color: #F7F9FC;
+    --card-background: #FFFFFF;
+    --text-color: #333;
+    --light-text-color: #888;
+    --border-color: #EAEFF5;
+    --font-family: 'Poppins', sans-serif;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 2rem 2.5rem;
+    overflow-y: auto;
+  }

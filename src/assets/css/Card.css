@@ -1,0 +1,29 @@
+.card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+      transform: translateY(-5px);
+  }
+  
+  .card-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  
+  .card-content {
+    color: var(--light-text-color);
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }

@@ -1,0 +1,11 @@
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 1200px) {
+    .analytics-grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }

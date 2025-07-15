@@ -1,0 +1,105 @@
+.voter-list-container {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.voter-list-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.voter-list-header h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  color: var(--heading-color);
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-form input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  min-width: 180px;
+  flex: 1 1 180px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+  transition: border-color 0.2s;
+}
+
+.filter-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.voter-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 800px;
+}
+
+.voter-table th,
+.voter-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.voter-table thead th {
+  background-color: #f1f4f8;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.voter-table tbody tr:hover {
+  background-color: #f9fbfd;
+}
+
+.pagination {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination .page-info {
+  font-size: 1rem;
+  font-weight: 500;
+}
