@@ -1,3 +1,5 @@
+Business suseptability score
+
 User Flow:
 Step 1: Select area (one booth or multiple booths grouped)
 
@@ -12,3 +14,53 @@ age/gender breakdown
 business suitability level (Low / Medium / High)
 
 optional chart or recommendation
+
+
+s Smart Business Match
+Smart Business Match recommends the most suitable businesses for a selected area (booth or group of booths), based purely on local voter demographics — age and gender.
+
+🧭 User Flow
+Select Booth(s): Choose one or more booths to analyze.
+
+Click “Find Best Businesses”: No need to choose a business yourself.
+
+View Results: System ranks the best-matching businesses automatically.
+
+⚙️ How It Works (Internally)
+For each business profile (e.g., Salon, Gym, Pharmacy):
+
+Check its target audience (e.g., Females 18–45).
+
+Count how many voters in the selected booths match that profile.
+
+Calculate a Suitability Score:
+
+Score
+=
+(
+Matching Voters
+Total Voters
+)
+×
+100
+Score=( 
+Total Voters
+Matching Voters
+​
+ )×100
+Sort businesses by score and return the top 3–5 recommendations.
+
+🖥️ What the User Sees
+Business	Score (%)	Target Audience
+Boutique	29.7%	Females aged 25–45
+Wellness Clinic	26.5%	Any gender aged 46+
+Salon	23.8%	Females aged 18–45
+
+✅ Why It’s Powerful
+Removes guesswork — system automatically tells you which business fits best.
+
+Helps investors, entrepreneurs, and campaigners find untapped market opportunities.
+
+Completely data-driven using local voter demographics.
+
+
