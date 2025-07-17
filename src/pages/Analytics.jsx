@@ -9,25 +9,37 @@ const Analytics = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchAnalytics = async () => {
-      try {
-        const boothRes = await apiClient.get('/analysis/booth-wise');
-        setBoothData({
-          labels: boothRes.data.map(b => `Booth ${b.booth_number}`),
-          datasets: [{
-            label: 'Voters per Booth',
-            data: boothRes.data.map(b => b.count),
-            backgroundColor: ['#4A90E2', '#50E3C2', '#F5A623', '#BD10E0', '#9013FE'],
-          }]
+  const fetchBoothCounts = async () => {
+    try {
+      const boothList = await apiClient.get('/booths');
+      const boothNumbers = boothList.data;
+      const boothCounts = [];
+
+      for (const booth of boothNumbers) {
+        const countRes = await apiClient.get(`/voters/count?booth_number=${booth}`);
+        boothCounts.push({
+          booth_number: booth,
+          count: countRes.data.count
         });
-      } catch (error) {
-        console.error("Failed to fetch analytics data", error);
-      } finally {
-        setLoading(false);
       }
-    };
-    fetchAnalytics();
-  }, []);
+
+      setBoothData({
+        labels: boothCounts.map(b => `Booth ${b.booth_number}`),
+        datasets: [{
+          label: 'Voters per Booth',
+          data: boothCounts.map(b => b.count),
+          backgroundColor: ['#4A90E2', '#50E3C2', '#F5A623', '#BD10E0', '#9013FE'],
+        }]
+      });
+    } catch (error) {
+      console.error("Failed to fetch booth-wise counts", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchBoothCounts();
+}, []);
 
   if (loading) return <div>Loading Analytics...</div>;
 
@@ -37,7 +49,31 @@ const Analytics = () => {
       <div className="analytics-grid">
         {boothData && (
           <Card title="Booth-wise Voter Distribution">
-            <Bar data={boothData} options={{ indexAxis: 'y' }}/>
+            <Bar 
+  data={boothData}
+  height={boothData.labels.length * 10}  // dynamic height per booth
+  options={{
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Voters per Booth',
+        font: { size: 16 }
+      }
+    },
+    scales: {
+      y: {
+        ticks: {
+          autoSkip: false,   // <-- ensures labels like Booth 135 aren't skipped
+        }
+      }
+    }
+  }}
+/>
+
           </Card>
         )}
         {/* You can add more charts here by fetching other analysis endpoints */}

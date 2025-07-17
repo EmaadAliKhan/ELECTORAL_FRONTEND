@@ -9,3 +9,8 @@
       grid-template-columns: 2fr 1fr;
     }
   }
+
+
+canvas {
+  height: 800px !important;
+}
