@@ -1,19 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../../assets/css/Sidebar.css';
+// ... other imports like icons
 
 const Sidebar = () => {
   return (
-    <nav className="sidebar">
-      <div className="sidebar-header">
-        ElectoBase 
-      </div>
-      <ul className="nav-links">
-        <li><NavLink to="/" end>📊 Dashboard</NavLink></li>
-        <li><NavLink to="/voters">👥 Voter Search</NavLink></li>
-        <li><NavLink to="/analytics">📈 Analytics</NavLink></li>
-      </ul>
-    </nav>
+    <aside className="sidebar">
+      <nav>
+        {/* ... your other links ... */}
+        <NavLink to="/voters">Voter List</NavLink>
+        <NavLink to="/analytics">General Analytics</NavLink>
+        {/* Add the new link */}
+        <NavLink to="/business-analysis">Business Analysis</NavLink>
+      </nav>
+    </aside>
   );
 };
 
