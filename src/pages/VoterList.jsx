@@ -60,15 +60,15 @@ const VoterList = () => {
   return (
     <div className="voter-list-container">
       <div className="voter-list-header">
-        <h2>Voter Database</h2>
+        <h2>Population Database</h2>
 
         <div className="filter-form">
           <input name="name" placeholder="Name" value={filters.name} onChange={handleFilterChange} />
           <input name="relation" placeholder="Relation" value={filters.relation} onChange={handleFilterChange} />
           <input name="house_number" placeholder="House No." value={filters.house_number} onChange={handleFilterChange} />
-          <input name="epic_number" placeholder="EPIC" value={filters.epic_number} onChange={handleFilterChange} />
+          {/* <input name="epic_number" placeholder="EPIC" value={filters.epic_number} onChange={handleFilterChange} /> */}
           <input name="gender" placeholder="Gender" value={filters.gender} onChange={handleFilterChange} />
-          <input name="booth_number" placeholder="Booth #" value={filters.booth_number} onChange={handleFilterChange} />
+          <input name="booth_number" placeholder="Area #" value={filters.booth_number} onChange={handleFilterChange} />
           <input name="age" placeholder="Age" value={filters.age} onChange={handleFilterChange} />
           <input name="min_age" placeholder="Min Age" value={filters.min_age} onChange={handleFilterChange} />
           <input name="max_age" placeholder="Max Age" value={filters.max_age} onChange={handleFilterChange} />
@@ -85,7 +85,7 @@ const VoterList = () => {
               <th>House No.</th>
               <th>Age</th>
               <th>Gender</th>
-              <th>EPIC Number</th>
+              {/* <th>EPIC Number</th> */}
               <th>Booth</th>
             </tr>
           </thead>
@@ -101,7 +101,7 @@ const VoterList = () => {
                   <td>{voter.house_number}</td>
                   <td>{voter.age}</td>
                   <td>{voter.gender}</td>
-                  <td>{voter.epic_number}</td>
+                  {/* <td>{voter.epic_number}</td> */}
                   <td>{voter.booth_number}</td>
                 </tr>
               ))

@@ -86,7 +86,7 @@ const Dashboard = () => {
   const ageGroupChartData = {
     labels: stats ? Object.keys(stats.ageGroups) : [],
     datasets: [{
-      label: 'Voters by Age',
+      label: 'Population by Age',
       data: stats ? Object.values(stats.ageGroups) : [],
       backgroundColor: 'rgba(74, 144, 226, 0.7)',
     }]
@@ -99,14 +99,14 @@ const Dashboard = () => {
     <div>
       {/* --- Booth Selector Dropdown --- */}
       <div className="dashboard-header">
-        <h2>Dashboard {selectedBooth ? `(Booth #${selectedBooth})` : "(All Booths)"}</h2>
+        <h2>Dashboard {selectedBooth ? `(Booth #${selectedBooth})` : ""}</h2>
         <div className="dropdown-wrapper">
-          <label htmlFor="booth-select">Filter by Booth:</label>
+          <label htmlFor="booth-select">Filter by Areas:</label>
           <select id="booth-select" value={selectedBooth} onChange={handleBoothChange}>
-            <option value="">All Booths</option>
+            <option value="">All Areas</option>
             {boothList.map((booth) => (
               <option key={booth} value={booth}>
-                Booth {booth}
+                Area {booth}
               </option>
             ))}
           </select>
@@ -115,13 +115,13 @@ const Dashboard = () => {
       
       {/* --- Main Grid --- */}
       <div className="dashboard-grid">
-        <Card title="Total Voters">
+        <Card title="Total Population">
           <div className="stat-number">{stats.totalVoters?.toLocaleString() || 0}</div>
         </Card>
-        <Card title="Male Voters">
+        <Card title="Male Population">
           <div className="stat-number">{stats.gender.male?.toLocaleString() || 0}</div>
         </Card>
-        <Card title="Female Voters">
+        <Card title="Female Population">
           <div className="stat-number">{stats.gender.female?.toLocaleString() || 0}</div>
         </Card>
         <Card title="Married Women">
@@ -145,7 +145,7 @@ const Dashboard = () => {
         <Card title="Gender Distribution">
           <Pie data={genderChartData} options={{ responsive: true, maintainAspectRatio: false }} />
         </Card>
-        <Card title="Voter Age Groups">
+        <Card title="Population Age Groups">
           <Bar data={ageGroupChartData} options={{ responsive: true, maintainAspectRatio: false }} />
         </Card>
       </div>

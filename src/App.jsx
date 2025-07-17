@@ -5,9 +5,12 @@ import Dashboard from './pages/Dashboard';
 import VoterList from './pages/VoterList';
 import Analytics from './pages/Analytics';
 import BusinessAnalysis from './pages/BusinessAnalysis'; // <-- Import new component
+
 import NotFound from './pages/NotFound';
 import './assets/css/App.css';
 
+// import BusinessAnalysis from './pages/BusinessAnalysis'; // <-- Import new component
+//  hlavní App component with layout and routing
 const App = () => {
   return (
     <div className="app-container">
@@ -17,9 +20,10 @@ const App = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/voters" element={<VoterList />} />
           <Route path="/analytics" element={<Analytics />} />
-          {/* Add new route below */}
-          <Route path="/business-analysis" element={<BusinessAnalysis />} /> 
           <Route path="*" element={<NotFound />} />
+                    {/* Add new route below */}
+          <Route path="/business-analysis" element={<BusinessAnalysis />} /> 
+
         </Routes>
       </main>
     </div>

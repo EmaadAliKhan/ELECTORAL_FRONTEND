@@ -24,7 +24,7 @@ const Analytics = () => {
       }
 
       setBoothData({
-        labels: boothCounts.map(b => `Booth ${b.booth_number}`),
+        labels: boothCounts.map(b => `Area ${b.booth_number}`),
         datasets: [{
           label: 'Voters per Booth',
           data: boothCounts.map(b => b.count),
@@ -48,7 +48,7 @@ const Analytics = () => {
       <h2>Analytics</h2>
       <div className="analytics-grid">
         {boothData && (
-          <Card title="Booth-wise Voter Distribution">
+          <Card title="Population-wise Distribution">
             <Bar 
   data={boothData}
   height={boothData.labels.length * 10}  // dynamic height per booth
@@ -60,7 +60,7 @@ const Analytics = () => {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Voters per Booth',
+        text: 'Population per Area',
         font: { size: 16 }
       }
     },
